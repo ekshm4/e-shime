@@ -89,27 +89,7 @@ CREATE TABLE IF NOT EXISTS bookings (
   FOREIGN KEY (therapist_id) REFERENCES therapists(id)
 );
 
--- Table: story_likes
-CREATE TABLE IF NOT EXISTS story_likes (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  story_id INT NOT NULL,
-  user_id INT NOT NULL,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE (story_id, user_id),
-  FOREIGN KEY (story_id) REFERENCES stories(id),
-  FOREIGN KEY (user_id) REFERENCES users(id)
-);
 
--- Table: story_comments
-CREATE TABLE IF NOT EXISTS story_comments (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  story_id INT NOT NULL,
-  user_id INT NOT NULL,
-  comment_text TEXT NOT NULL,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (story_id) REFERENCES stories(id),
-  FOREIGN KEY (user_id) REFERENCES users(id)
-);
 
 
 CREATE TABLE IF NOT EXISTS poetryStories (

@@ -16,11 +16,13 @@ export const createStory = async (req, res) => {
       [title, content]
     );
 
+    console.log(result.insertId);
     res.status(201).json({
       message: "Story created successfully",
       storyId: result.insertId,
     });
 
+    
   } catch (error) {
     console.error("Error inserting story:", error);
     res.status(500).json({ error: "Internal server error" });
@@ -37,6 +39,7 @@ export const getAllStories = async (req, res) => {
        ORDER BY created_at DESC`
     );
 
+    console.log(rows);
     res.status(200).json(rows);
 
   } catch (error) {
